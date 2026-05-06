@@ -6,7 +6,10 @@
   "plugins": [
     {
       "name": "tx3-skills",
-      "source": ".",
+      "source": {
+        "source": "github",
+        "repo": "tx3-lang/tx3-skills"
+      },
       "description": "First-class Tx3 language and trix toolchain support for Claude Code: tx3-language and tx3-project skills, slash commands, save hook, and the tx3-mcp MCP server."
     }
   ]
