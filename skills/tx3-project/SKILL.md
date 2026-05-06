@@ -125,6 +125,8 @@ trix explore                  # interactive chain inspector via CShell
 
 `trix invoke` opens an interactive prompt if `--args-json` is omitted. Use `@<wallet_name>` placeholders to refer to wallets defined in `[[profile.<name>.wallets]]`.
 
+In Claude Code, prefer `/tx3:invoke '<args-json>'` — wraps `mcp__tx3__tx3_invoke` (which shells out to `trix invoke` with stdin closed and a 60s timeout). Use `skip_submit: true` to assemble+sign without broadcasting.
+
 ### Generate client code
 
 ```sh
