@@ -2,7 +2,9 @@
   "name": "tx3-skills",
   "version": "0.1.0",
   "description": "First-class Tx3 language and trix toolchain support for Claude Code. Ships two skills (tx3-language, tx3-project), four slash commands, a save hook, and an MCP server (tx3-mcp). Compatible with tx3 0.17.x.",
-  "author": "TxPipe",
+  "author": {
+    "name": "TxPipe"
+  },
   "license": "Apache-2.0",
   "homepage": "https://github.com/tx3-lang/tx3-skills",
   "skills": [
