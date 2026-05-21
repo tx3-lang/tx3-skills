@@ -12,11 +12,11 @@ A [Claude Code](https://claude.com/claude-code) plugin that makes the [Tx3](http
 
 ## Prerequisite: install the toolchain via `tx3up`
 
-This plugin assumes `tx3-mcp` and `trix` are on your `PATH`. The recommended way to install both is via [`tx3up`](https://github.com/tx3-lang/up):
+This plugin assumes `tx3-mcp` and `trix` are on your `PATH`. The recommended way to install both is via [`tx3up`](https://github.com/tx3-lang/tx3up):
 
 ```sh
 curl --proto '=https' --tlsv1.2 -LsSf \
-  https://github.com/tx3-lang/up/releases/latest/download/tx3up-installer.sh | sh
+  https://github.com/tx3-lang/tx3up/releases/latest/download/tx3up-installer.sh | sh
 tx3up
 ```
 

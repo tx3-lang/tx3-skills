@@ -11,4 +11,4 @@ After scaffolding:
 3. Summarize for the user: project name, version, scope, and the txs defined in `main.tx3`.
 4. Suggest the next step: `/tx3:check` to validate, then edit `main.tx3` to define real transactions.
 
-If `trix` is not on `PATH`, tell the user to install it via `tx3up` (https://github.com/tx3-lang/up).
+If `trix` is not on `PATH`, tell the user to install it via `tx3up` (https://github.com/tx3-lang/tx3up).
