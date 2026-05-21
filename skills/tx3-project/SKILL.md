@@ -10,7 +10,7 @@ license: Apache-2.0
 
 ## Preflight
 
-If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/up) and run `tx3up`. The MCP tools (`mcp__tx3__*`) only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available.
+If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The MCP tools (`mcp__tx3__*`) only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available.
 
 ## Project layout
 

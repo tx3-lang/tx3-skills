@@ -10,7 +10,7 @@ Tx3 is a declarative DSL for **transaction templates** that compile to chain-spe
 
 ## Preflight
 
-If MCP tools `mcp__tx3__tx3_*` are not available in this session, the `tx3-mcp` binary isn't on `PATH`. Run `which tx3-mcp` — if missing, instruct the user to install [`tx3up`](https://github.com/tx3-lang/up) and run `tx3up`. Without MCP you can still answer language questions from this skill, but you cannot validate code.
+If MCP tools `mcp__tx3__tx3_*` are not available in this session, the `tx3-mcp` binary isn't on `PATH`. Run `which tx3-mcp` — if missing, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. Without MCP you can still answer language questions from this skill, but you cannot validate code.
 
 ## File anatomy
 
