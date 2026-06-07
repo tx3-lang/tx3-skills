@@ -31,6 +31,8 @@ input source {
 
 `input * 3 { ... }` (with a `*N` multiplier) consumes N matching UTxOs. Without `datum_is`, the input's datum is opaque `Bytes`.
 
+If `from` is a [policy](./top-level) that carries a `ref`, that reference-script UTxO is added to the transaction's reference inputs automatically — no separate `reference` block needed.
+
 ## `reference <name> { ... }`
 
 A read-only UTxO reference (CIP-31 / CIP-32).
@@ -93,7 +95,7 @@ burn {
 }
 ```
 
-Multiple mint/burn blocks aggregate by policy — a tx that mints and burns the same asset will net out.
+Multiple mint/burn blocks aggregate by policy — a tx that mints and burns the same asset will net out. If the minted or burned asset's policy carries a `ref`, that reference-script UTxO is added to the transaction's reference inputs automatically.
 
 ## `validity { ... }`
 

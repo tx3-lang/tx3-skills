@@ -45,7 +45,7 @@ policy FullyDefinedPolicy {
 }
 ```
 
-`hash` is the policy hash. `script` is the script bytes (Plutus or native). `ref` is a UTxO ref where the script lives as a reference script (CIP-31). Use the block form when you want Tx3 to resolve `ref:` to a `cardano::publish`'d UTxO automatically.
+`hash` is the policy hash. `script` is the script bytes (Plutus or native). `ref` is a UTxO ref where the script lives as a reference script (CIP-31). When a `ref`-backed policy is used in a position that requires its script — as an input's `from`, or as the policy of a `mint` / `burn` — that `ref` UTxO is added to the transaction's reference inputs automatically (deduped); you do not declare a separate `reference` block for it. An inline `script` (with no `ref`) is not attached automatically — supply it with a `cardano::*_witness` block.
 
 ## `asset Name = policy."asset_name";`
 
