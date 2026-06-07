@@ -141,3 +141,20 @@ output { to: ..., amount: Ada(40) + min_utxo(???) }
 ```
 
 Use named outputs when you need self-references.
+
+## A policy's `ref` becomes a reference input automatically
+
+Don't declare a `reference` block for a policy's reference script. When a `ref`-backed policy is used as an input's `from`, or as a `mint` / `burn` policy, its `ref` UTxO is added to the transaction's reference inputs for you (deduped against explicit `reference` blocks and repeated uses).
+
+```tx3
+policy Vault { hash: 0xABCD, ref: 0xANCHOR#0 }
+
+// ✅ — Vault's `ref` UTxO is attached automatically
+input locked { from: Vault, redeemer: () }
+
+// ❌ — redundant; the reference is already added by using Vault
+reference _vault_script { ref: 0xANCHOR#0 }
+input locked { from: Vault, redeemer: () }
+```
+
+Use explicit `reference` blocks for read-only data (oracles) and inline scripts — not for a policy that already carries its `ref`. An inline `script` (no `ref`) still needs a `cardano::*_witness` block.
