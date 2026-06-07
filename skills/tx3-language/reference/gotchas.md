@@ -157,4 +157,4 @@ reference _vault_script { ref: 0xANCHOR#0 }
 input locked { from: Vault, redeemer: () }
 ```
 
-Use explicit `reference` blocks for read-only data (oracles) and inline scripts — not for a policy that already carries its `ref`. An inline `script` (no `ref`) still needs a `cardano::*_witness` block.
+Use an explicit `reference` block when you need to attach a reference input by hand — oracle datums, or an on-chain reference script for a credential you don't model as a `ref`-backed policy. Don't duplicate one for a policy that already carries its `ref`. An *inline* script (raw bytes, not published on-chain) is different again: that goes in a `cardano::*_witness` block, not a `reference` block.
