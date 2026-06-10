@@ -7,6 +7,7 @@
 | `+` | `Int + Int`, `AnyAsset + AnyAsset` | Asset addition aggregates by policy. |
 | `-` | `Int - Int`, `AnyAsset - AnyAsset` | |
 | `*` | `Int * Int`, `AnyAsset * Int`, `Int * AnyAsset` | Multiplication; scales asset quantities. Binds tighter than `+`/`-`. |
+| `/` | `Int / Int`, `AnyAsset / Int` | Integer division, truncates toward zero (`7/2` → `3`). Scales asset quantities down. Does not commute. Divide-by-zero is an error. Write a single `/` — `a//b` is a comment. |
 | `++` | `Bytes ++ Bytes`, `List<T> ++ List<T>` | Concatenation. |
 | `!` | `! Bool` | Logical not. |
 | `.field` | record / `AnyAsset` / `UtxoRef` | Property access. |

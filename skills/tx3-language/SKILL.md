@@ -143,7 +143,7 @@ min_utxo(out_name)                         // min Lovelace for an output
 concat(a, b, ...)                          // bytes/list concatenation; use `++` operator too
 ```
 
-Operators: `+`, `-`, `*` (numeric and asset arithmetic; `*` scales an `AnyAsset` by an `Int` and binds tighter than `+`/`-`), `++` (concat), `!` (negate), `.field` (property access), `[index]` (list/map access).
+Operators: `+`, `-`, `*`, `/` (numeric and asset arithmetic; `*` scales an `AnyAsset` by an `Int`, `/` is integer division truncating toward zero and scales an `AnyAsset` down by an `Int` — both bind tighter than `+`/`-`; write division as a single `/` since `a//b` is a comment), `++` (concat), `!` (negate), `.field` (property access), `[index]` (list/map access).
 
 Struct construction supports spread: `T { ...source, field: value }` copies fields from `source` and overrides `field`.
 
