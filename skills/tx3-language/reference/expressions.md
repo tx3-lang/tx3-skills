@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | `+` | `Int + Int`, `AnyAsset + AnyAsset` | Asset addition aggregates by policy. |
 | `-` | `Int - Int`, `AnyAsset - AnyAsset` | |
+| `*` | `Int * Int`, `AnyAsset * Int`, `Int * AnyAsset` | Multiplication; scales asset quantities. Binds tighter than `+`/`-`. |
 | `++` | `Bytes ++ Bytes`, `List<T> ++ List<T>` | Concatenation. |
 | `!` | `! Bool` | Logical not. |
 | `.field` | record / `AnyAsset` / `UtxoRef` | Property access. |
