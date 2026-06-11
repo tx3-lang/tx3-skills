@@ -11,7 +11,8 @@
 | `++` | `Bytes ++ Bytes`, `List<T> ++ List<T>` | Concatenation. |
 | `!` | `! Bool` | Logical not. |
 | `.field` | record / `AnyAsset` / `UtxoRef` | Property access. |
-| `[i]` | `List<T>[Int]`, `Map<K,V>[K]` | Indexing. |
+| `[i]` | `List<T>[Int]`, `Map<K,V>[K]`, `Tuple<...>[literal]` | Indexing. For a tuple the index must be an integer literal in range; the result is that position's type. |
+| `(a, b, ...)` | tuple literal (≥ 2 elements) | Builds a `Tuple<...>`. `(e)` is grouping, `()` is `Unit`. |
 | `T { ... }` | record/variant constructor | See struct construction below. |
 
 Tx3 has no comparison operators (`<`, `>`, `==`) in `tx` bodies — control flow is fixed at compile time. You parameterise behaviour through tx parameters and let validators do runtime checks.

@@ -109,6 +109,7 @@ Compound:
 
 - `List<T>` — `[1, 2, 3]`; index with `list[0]`
 - `Map<K, V>` — `{1: "a", 2: "b"}`; index with `map[key]`. Note: empty `{}` parses as an empty struct constructor, not an empty map — provide at least one entry.
+- `Tuple<T1, ..., Tn>` — fixed-arity (≥ 2), positionally-typed; build with two-or-more parenthesized exprs `(1, 0xFF)`, index with a literal `tuple[0]`. `(e)` is grouping, `()` is `Unit`; no `.0`/`.1` syntax.
 - Record types — declared with `type T { field: Type, ... }`; constructed with `T { field: value, ... }`
 - Variant types — declared with `type T { Case1 { fields }, Case2, ... }`; constructed with `T::Case1 { ... }`
 
