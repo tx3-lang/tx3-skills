@@ -30,6 +30,25 @@ Index with `list[i]`. Concat with `++` or `concat(a, b)`.
 
 Index with `map[key]`. **An empty `{}` parses as an empty struct constructor, not an empty map.** If you need an empty map, the type system requires at least one entry — re-shape your model.
 
+### `Tuple<T1, ..., Tn>`
+
+Fixed-arity, positionally-typed product; each position can have a different type. **Arity is always ≥ 2.**
+
+```tx3
+type Datum {
+    pair: Tuple<Int, Bytes>,
+    triple: Tuple<Int, Bytes, Bool>,
+}
+
+// Construct: two-or-more comma-separated exprs in parentheses
+(42, 0xFF)
+(quantity, name, true)
+```
+
+- `(e)` is **grouping**, not a one-tuple; `()` is `Unit`. Tuples need ≥ 2 elements.
+- Index with `tuple[i]` where `i` is an **integer literal in range**; the result has that position's type. A tuple cannot be indexed by a runtime value (positions have different types), and an out-of-range index is a compile error. There is no `.0`/`.1` syntax — the `.` postfix is for named fields, and `.<number>` would collide with the `policy.asset_name` separator in `asset` definitions.
+- Equivalence is structural, ordered, and arity-sensitive: `Tuple<Int, Bytes>` ≠ `Tuple<Bytes, Int>` ≠ `Tuple<Int, Bytes, Bool>`.
+
 ### Records
 
 ```tx3
