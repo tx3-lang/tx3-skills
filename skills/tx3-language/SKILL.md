@@ -10,7 +10,9 @@ Tx3 is a declarative DSL for **transaction templates** that compile to chain-spe
 
 ## Preflight
 
-If MCP tools `mcp__tx3__tx3_*` are not available in this session, the `tx3-mcp` binary isn't on `PATH`. Run `which tx3-mcp` — if missing, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. Without MCP you can still answer language questions from this skill, but you cannot validate code.
+This skill names the tools of the local `tx3` MCP server (`tx3-mcp`) by their advertised names, such as `tx3_check`. The host decides the prefix it shows them under: installed from the `tx3-skills` Claude Code plugin they appear as `mcp__plugin_tx3-skills_tx3__tx3_check`, and a server added by hand as `tx3` appears as `mcp__tx3__tx3_check`. Call the tool with that advertised name, whatever the prefix.
+
+If no `tx3_*` tools are available in this session, the `tx3-mcp` binary isn't on the host's `PATH`. Run `which tx3-mcp` — if missing, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. Without MCP you can still answer language questions from this skill, but you cannot validate code.
 
 ## File anatomy
 
@@ -165,7 +167,7 @@ More gotchas: `reference/gotchas.md`.
 
 ## Where to look
 
-- Worked examples: call MCP `mcp__tx3__tx3_examples_list` to see all 10 bundled examples, then `mcp__tx3__tx3_example_get` with a name (e.g. `lang_tour` for a complete syntax tour).
+- Worked examples: call the `tx3_examples_list` tool to see the bundled examples, then `tx3_example_get` with a name (e.g. `lang_tour` for a complete syntax tour).
 - Deeper reference per topic:
   - `reference/top-level.md` — env, party, policy, asset, type
   - `reference/tx-blocks.md` — every sub-block with full syntax
@@ -180,4 +182,4 @@ If the user is working in a directory with `trix.toml` (a Tx3 project managed by
 
 ## Validating your edits
 
-After writing or editing a `.tx3` file, call `mcp__tx3__tx3_check` with `{ "path": "<absolute path>" }` to surface parse and analyze diagnostics. Each diagnostic carries `severity`, `message`, `code`, optional `help`, and `spans[]` with `start_line`/`start_col` — quote those when offering fixes.
+After writing or editing a `.tx3` file, call the `tx3_check` tool with `{ "path": "<absolute path>" }` to surface parse and analyze diagnostics. Each diagnostic carries `severity`, `message`, `code`, optional `help`, and `spans[]` with `start_line`/`start_col` — quote those when offering fixes.

@@ -64,7 +64,7 @@ fi
 
 # Non-blocking: emit additionalContext-style output so the model sees diagnostics.
 if command -v jq >/dev/null 2>&1; then
-    jq -nc --arg msg "tx3 diagnostics for $file_path:\n$diagnostics" \
+    jq -nc --arg msg "tx3 diagnostics for $file_path:"$'\n'"$diagnostics" \
         '{hookSpecificOutput:{hookEventName:"PostToolUse",additionalContext:$msg}}'
 else
     # Fallback: simple printf-shaped JSON. Newlines in diagnostics are escaped.

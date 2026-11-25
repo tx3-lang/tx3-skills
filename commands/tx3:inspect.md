@@ -3,11 +3,11 @@ description: Show the TIR (typed intermediate representation) for a single trans
 argument-hint: "<tx_name>"
 ---
 
-A transaction name is required as $1. If $1 is empty, ask which tx to inspect (call `mcp__tx3__tx3_inspect_project` first to enumerate available txs).
+A transaction name is required as $1. If $1 is empty, ask which tx to inspect (call `mcp__plugin_tx3-skills_tx3__tx3_inspect_project` first to enumerate available txs).
 
 Find the nearest `trix.toml`, resolve `[protocol].main`, and read the file contents.
 
-Call MCP tool `mcp__tx3__tx3_lower` with `{ "source": <main.tx3 contents>, "tx_name": "$1" }`.
+Call the `tx3_lower` tool of the plugin's `tx3` MCP server (`mcp__plugin_tx3-skills_tx3__tx3_lower`) with `{ "source": <main.tx3 contents>, "tx_name": "$1" }`.
 
 If `ok: false`, render diagnostics like `/tx3:check` does and stop.
 

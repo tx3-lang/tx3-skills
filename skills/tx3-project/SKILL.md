@@ -10,7 +10,7 @@ license: Apache-2.0
 
 ## Preflight
 
-If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The MCP tools (`mcp__tx3__*`) only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available.
+If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The local `tx3` MCP server's tools (`tx3_check`, `tx3_inspect_project`, …) only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available. The host chooses their prefix: from the `tx3-skills` Claude Code plugin, `tx3_check` appears as `mcp__plugin_tx3-skills_tx3__tx3_check`. Call each tool by its advertised name, whatever the prefix.
 
 ## Project layout
 
@@ -94,7 +94,11 @@ In Claude Code, prefer `/tx3:new` — it runs `trix init -y`, reads back the gen
 trix check       # runs parser + analyzer over [protocol].main
 ```
 
-Or use `/tx3:check` — it calls `mcp__tx3__tx3_check` which surfaces structured diagnostics with line/col spans.
+Or call the `tx3_check` tool, which surfaces structured diagnostics with line/col spans (in Claude Code, `/tx3:check` wraps it).
+
+### Inspect a project's interface
+
+To learn what an application must supply for each transaction, call the `tx3_inspect_project` tool with `{ "project_dir": "<absolute directory containing trix.toml>" }`. It returns `ok`, each tx with its params and types, its input/output/mint/burn counts, and the declared parties, assets and policies. Parties are addresses the caller binds; read the `///` doc comments in `main.tx3` for roles and units (for example lovelace for `Ada(quantity)`).
 
 ### Build TII (Transaction Interface Information)
 
@@ -113,7 +117,7 @@ trix inspect tir --tx swap            # dump TIR JSON for the named tx
 trix inspect tir --tx swap --pretty   # human-readable formatting
 ```
 
-Or use `/tx3:inspect <tx_name>` — wraps `mcp__tx3__tx3_lower` and produces a TIR dump plus a 5–10 bullet summary.
+Or call the `tx3_lower` tool for the TIR; in Claude Code, `/tx3:inspect <tx_name>` wraps it and adds a 5–10 bullet summary.
 
 ### Run end-to-end (devnet → invoke)
 
@@ -125,7 +129,7 @@ trix explore                  # interactive chain inspector via CShell
 
 `trix invoke` opens an interactive prompt if `--args-json` is omitted. Use `@<wallet_name>` placeholders to refer to wallets defined in `[[profile.<name>.wallets]]`.
 
-In Claude Code, prefer `/tx3:invoke '<args-json>'` — wraps `mcp__tx3__tx3_invoke` (which shells out to `trix invoke` with stdin closed and a 60s timeout). Use `skip_submit: true` to assemble+sign without broadcasting.
+To inspect a transaction before submitting it, call the `tx3_invoke` tool (in Claude Code, `/tx3:invoke <tx-name> '<args-json>'`). It resolves against the profile's TRP endpoint and returns the unsigned CBOR and tx hash; it never signs or submits, so broadcast with `trix invoke`.
 
 ### Generate client code
 
