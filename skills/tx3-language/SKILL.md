@@ -10,7 +10,7 @@ Tx3 is a declarative DSL for **transaction templates** that compile to chain-spe
 
 ## Preflight
 
-This skill names the local `tx3` MCP server's tools as the server advertises them (`tx3_check`, `tx3_examples_list`, …). Each host adds its own namespace: Claude Code lists `tx3_check` as `mcp__tx3__tx3_check`, OpenCode as `tx3_tx3_check`.
+This skill names the local `tx3` MCP server's tools as the server advertises them (`tx3_check`, `tx3_examples_list`, …). Each host adds its own namespace: the Claude Code plugin lists `tx3_check` as `mcp__plugin_tx3-skills_tx3__tx3_check` (`mcp__tx3__tx3_check` for a server added by hand as `tx3`), OpenCode as `tx3_tx3_check`. Call the tool with that advertised name, whatever the prefix.
 
 If those tools are not available in this session, the `tx3-mcp` binary isn't on `PATH`. Run `which tx3-mcp` — if missing, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. Without MCP you can still answer language questions from this skill, but you cannot validate code.
 

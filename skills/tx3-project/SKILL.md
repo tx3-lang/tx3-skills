@@ -10,7 +10,7 @@ license: Apache-2.0
 
 ## Preflight
 
-If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The local `tx3` MCP server's tools only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available. This skill names those tools as the server advertises them; each host adds its own namespace (Claude Code: `mcp__tx3__tx3_inspect_project`, OpenCode: `tx3_tx3_inspect_project`).
+If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The local `tx3` MCP server's tools only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available. This skill names those tools as the server advertises them; each host adds its own namespace (Claude Code plugin: `mcp__plugin_tx3-skills_tx3__tx3_inspect_project`, OpenCode: `tx3_tx3_inspect_project`). The `/tx3:*` slash commands exist only in the Claude Code plugin; elsewhere use the `trix` command or `tx3_*` tool given beside each.
 
 To see what a project's transactions need — parameters, parties, inputs and outputs — call `tx3_inspect_project` with the absolute directory containing `trix.toml`.
 
@@ -96,7 +96,7 @@ In Claude Code, prefer `/tx3:new` — it runs `trix init -y`, reads back the gen
 trix check       # runs parser + analyzer over [protocol].main
 ```
 
-Or use `/tx3:check` — it calls `tx3_check` which surfaces structured diagnostics with line/col spans.
+Or call `tx3_check` (in Claude Code, `/tx3:check`), which surfaces structured diagnostics with line/col spans.
 
 ### Build TII (Transaction Interface Information)
 
@@ -115,7 +115,7 @@ trix inspect tir --tx swap            # dump TIR JSON for the named tx
 trix inspect tir --tx swap --pretty   # human-readable formatting
 ```
 
-Or use `/tx3:inspect <tx_name>` — wraps `tx3_lower` and produces a TIR dump plus a 5–10 bullet summary.
+Or call `tx3_lower` with the source and tx name (in Claude Code, `/tx3:inspect <tx_name>` wraps it and adds a 5–10 bullet summary).
 
 ### Run end-to-end (devnet → invoke)
 
@@ -200,16 +200,16 @@ amount = 9638899
 ## Common workflows
 
 **Start a new protocol from scratch**
-1. `/tx3:new` (or `trix init`)
+1. `trix init` (in Claude Code, `/tx3:new`)
 2. Edit `main.tx3` — define your parties, types, and transactions
-3. `/tx3:check` to validate as you go
+3. `trix check` or `tx3_check` to validate as you go (in Claude Code, `/tx3:check`)
 4. `trix devnet -b` to start a local chain
 5. `trix invoke --args-json '...'` to exercise a transaction
 
 **Add a new transaction to an existing project**
 1. Edit `main.tx3`
-2. `/tx3:check`
-3. `/tx3:inspect <new_tx>` to see the TIR
+2. `trix check` or `tx3_check` (in Claude Code, `/tx3:check`)
+3. `trix inspect tir --tx <new_tx>` or `tx3_lower` to see the TIR (in Claude Code, `/tx3:inspect <new_tx>`)
 4. `trix build` to refresh TII
 5. If clients are codegen'd, `trix codegen`
 

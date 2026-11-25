@@ -92,6 +92,10 @@ and the `Sender` and `Receiver` parties.
 
 ## Conflicts
 
+To turn the Tx3 server off without removing the plugin, set `"mcp": {"tx3": {"enabled": false}}`.
+An entry with only `enabled` is a toggle: the plugin registers the server with your setting and
+does not warn.
+
 If your config already defines an MCP server named `tx3` that does not run `tx3-mcp`, the
 plugin leaves it alone, still registers the Skills, and logs a warning:
 

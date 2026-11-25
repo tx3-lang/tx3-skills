@@ -18,19 +18,20 @@ function isTx3Mcp(entry) {
 }
 
 /**
- * Add the tx3 MCP server and the Skills directory to an OpenCode config in place.
- * Existing entries are kept, and repeated calls leave the config unchanged.
+ * Add the tx3 MCP server and the Skills directory to an OpenCode config.
+ * Nested objects are replaced, never changed in place, because the host may share
+ * them with its cached global config. Existing entries are kept, a `{enabled}`-only
+ * toggle is applied to the server, and repeated calls leave the config unchanged.
  * Returns a warning when another server already owns the `tx3` name, else undefined.
  */
 export function applyTx3Config(config) {
-  config.skills ??= {}
-  config.skills.paths ??= []
-  if (!config.skills.paths.includes(SKILLS_DIR)) config.skills.paths.push(SKILLS_DIR)
+  const paths = config.skills?.paths ?? []
+  if (!paths.includes(SKILLS_DIR)) config.skills = { ...config.skills, paths: [...paths, SKILLS_DIR] }
 
-  config.mcp ??= {}
-  const existing = config.mcp[SERVER_NAME]
-  if (existing === undefined) {
-    config.mcp[SERVER_NAME] = { ...SERVER, command: [...SERVER.command] }
+  const existing = config.mcp?.[SERVER_NAME]
+  if (existing?.type === undefined) {
+    const server = { ...SERVER, command: [...SERVER.command], ...existing }
+    config.mcp = { ...config.mcp, [SERVER_NAME]: server }
     return
   }
   if (isTx3Mcp(existing)) return
