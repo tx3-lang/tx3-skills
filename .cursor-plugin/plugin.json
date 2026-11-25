@@ -1,0 +1,23 @@
+{
+  "name": "tx3-skills",
+  "displayName": "Tx3",
+  "version": "0.2.0",
+  "description": "Tx3 language and trix project support for Cursor: the tx3-language and tx3-project Agent Skills plus the local tx3-mcp server for checking, lowering and inspecting Tx3 protocols. Requires the Tx3 toolchain from tx3up.",
+  "author": {
+    "name": "TxPipe"
+  },
+  "homepage": "https://github.com/tx3-lang/tx3-skills",
+  "repository": "https://github.com/tx3-lang/tx3-skills",
+  "license": "Apache-2.0",
+  "keywords": ["tx3", "cardano", "trix", "mcp", "skills"],
+  "skills": [
+    "./skills/tx3-language",
+    "./skills/tx3-project"
+  ],
+  "commands": [],
+  "mcpServers": {
+    "tx3": {
+      "command": "tx3-mcp"
+    }
+  }
+}
