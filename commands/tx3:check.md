@@ -4,7 +4,7 @@ description: Run the Tx3 parser and analyzer over the current project's main fil
 
 Find the nearest `trix.toml` walking up from the current working directory. Read its `[protocol].main` value (default: `main.tx3`) and resolve the absolute path of the main file relative to the `trix.toml` directory.
 
-Call MCP tool `mcp__tx3__tx3_check` with `{ "path": "<absolute path to main.tx3>" }`.
+Call the `tx3_check` tool of the plugin's `tx3` MCP server (`mcp__plugin_tx3-skills_tx3__tx3_check`) with `{ "path": "<absolute path to main.tx3>" }`.
 
 Render the result:
 - If `ok: true` and `diagnostics` is empty → say "check passed" and stop.

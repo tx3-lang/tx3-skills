@@ -10,13 +10,13 @@ This command **resolves** a transaction — it returns the unsigned CBOR + tx ha
 - $1 — transaction name (matches a `tx <name>` block in `main.tx3`).
 - $2 — JSON object string of arguments. Same shape `trix invoke --args-json` accepts.
 
-If $1 is empty, ask which transaction to resolve. Use `mcp__tx3__tx3_inspect_project` first to enumerate the available transactions and their parameters.
+If $1 is empty, ask which transaction to resolve. Use `mcp__plugin_tx3-skills_tx3__tx3_inspect_project` first to enumerate the available transactions and their parameters.
 
 ## Procedure
 
 Find the nearest `trix.toml` walking up from the current working directory. The directory containing it is the `project_dir`.
 
-Call MCP tool `mcp__tx3__tx3_invoke` with:
+Call the `tx3_invoke` tool of the plugin's `tx3` MCP server (`mcp__plugin_tx3-skills_tx3__tx3_invoke`) with:
 ```json
 {
   "project_dir": "<absolute path to dir with trix.toml>",

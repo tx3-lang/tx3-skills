@@ -1,12 +1,14 @@
 {
   "name": "tx3-skills",
-  "version": "0.1.0",
-  "description": "First-class Tx3 language and trix toolchain support for Claude Code. Ships two skills (tx3-language, tx3-project), four slash commands, a save hook, and an MCP server (tx3-mcp). Compatible with tx3 0.17.x.",
+  "version": "0.2.0",
+  "description": "First-class Tx3 language and trix toolchain support for Claude Code. Ships the tx3-language and tx3-project skills, the /tx3:* slash commands, a save hook, and the local tx3 MCP server (tx3-mcp). Built against the tx3up stable toolchain: tx3-mcp 0.5.x, trix 0.28.x, tx3c 0.25.x.",
   "author": {
     "name": "TxPipe"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/tx3-lang/tx3-skills",
+  "repository": "https://github.com/tx3-lang/tx3-skills",
+  "keywords": ["tx3", "cardano", "trix", "mcp"],
   "skills": [
     "./skills/tx3-language",
     "./skills/tx3-project"

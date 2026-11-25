@@ -3,7 +3,9 @@ description: Explain the current Tx3 project (or one transaction) in plain langu
 argument-hint: "[tx_name]"
 ---
 
-Find the nearest `trix.toml`. Call MCP tool `mcp__tx3__tx3_inspect_project` with `{ "project_dir": "<absolute path to project root>" }`.
+Find the nearest `trix.toml`. Call the `tx3_inspect_project` tool of the plugin's `tx3` MCP server (`mcp__plugin_tx3-skills_tx3__tx3_inspect_project`) with `{ "project_dir": "<absolute path to project root>" }`.
+
+The response summarizes shape only (party names, tx params and types, input/output/mint/burn counts). Also read the file named by `trix_toml.protocol.main` for the `///` doc comments and block bodies: they carry each party's role, parameter units (for example lovelace for `Ada(quantity)`) and what each input and output moves.
 
 Render a human-readable explanation:
 
