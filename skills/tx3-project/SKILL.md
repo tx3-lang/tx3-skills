@@ -10,7 +10,9 @@ license: Apache-2.0
 
 ## Preflight
 
-If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The MCP tools (`mcp__tx3__*`) only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available.
+If `trix` is not on `PATH`, instruct the user to install [`tx3up`](https://github.com/tx3-lang/tx3up) and run `tx3up`. The local `tx3` MCP server's tools only depend on `tx3-mcp`, but the slash commands and full workflow assume `trix` is available. This skill names those tools as the server advertises them; each host adds its own namespace (Claude Code: `mcp__tx3__tx3_inspect_project`, OpenCode: `tx3_tx3_inspect_project`).
+
+To see what a project's transactions need — parameters, parties, inputs and outputs — call `tx3_inspect_project` with the absolute directory containing `trix.toml`.
 
 ## Project layout
 
@@ -94,7 +96,7 @@ In Claude Code, prefer `/tx3:new` — it runs `trix init -y`, reads back the gen
 trix check       # runs parser + analyzer over [protocol].main
 ```
 
-Or use `/tx3:check` — it calls `mcp__tx3__tx3_check` which surfaces structured diagnostics with line/col spans.
+Or use `/tx3:check` — it calls `tx3_check` which surfaces structured diagnostics with line/col spans.
 
 ### Build TII (Transaction Interface Information)
 
@@ -113,7 +115,7 @@ trix inspect tir --tx swap            # dump TIR JSON for the named tx
 trix inspect tir --tx swap --pretty   # human-readable formatting
 ```
 
-Or use `/tx3:inspect <tx_name>` — wraps `mcp__tx3__tx3_lower` and produces a TIR dump plus a 5–10 bullet summary.
+Or use `/tx3:inspect <tx_name>` — wraps `tx3_lower` and produces a TIR dump plus a 5–10 bullet summary.
 
 ### Run end-to-end (devnet → invoke)
 
@@ -125,7 +127,7 @@ trix explore                  # interactive chain inspector via CShell
 
 `trix invoke` opens an interactive prompt if `--args-json` is omitted. Use `@<wallet_name>` placeholders to refer to wallets defined in `[[profile.<name>.wallets]]`.
 
-In Claude Code, prefer `/tx3:invoke '<args-json>'` — wraps `mcp__tx3__tx3_invoke` (which shells out to `trix invoke` with stdin closed and a 60s timeout). Use `skip_submit: true` to assemble+sign without broadcasting.
+In Claude Code, prefer `/tx3:invoke '<args-json>'` — wraps `tx3_invoke` (which shells out to `trix invoke` with stdin closed and a 60s timeout). Use `skip_submit: true` to assemble+sign without broadcasting.
 
 ### Generate client code
 

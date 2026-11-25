@@ -1,0 +1,27 @@
+{
+  "name": "opencode-tx3",
+  "version": "0.2.0",
+  "description": "Tx3 for OpenCode: the tx3-language and tx3-project Skills and the local tx3-mcp server.",
+  "license": "Apache-2.0",
+  "author": "TxPipe",
+  "homepage": "https://github.com/tx3-lang/tx3-skills/blob/main/docs/opencode.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tx3-lang/tx3-skills.git"
+  },
+  "keywords": ["opencode", "opencode-plugin", "tx3", "cardano", "mcp"],
+  "type": "module",
+  "main": "./opencode/index.mjs",
+  "exports": {
+    ".": "./opencode/index.mjs",
+    "./server": "./opencode/index.mjs"
+  },
+  "engines": {
+    "opencode": ">=1.17.14 <2"
+  },
+  "files": [
+    "opencode/index.mjs",
+    "skills/tx3-language/",
+    "skills/tx3-project/"
+  ]
+}
