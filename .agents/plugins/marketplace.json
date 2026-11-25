@@ -1,0 +1,21 @@
+{
+  "name": "tx3",
+  "interface": {
+    "displayName": "Tx3"
+  },
+  "plugins": [
+    {
+      "name": "tx3-skills",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/tx3-lang/tx3-skills.git",
+        "ref": "v0.2.0"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
