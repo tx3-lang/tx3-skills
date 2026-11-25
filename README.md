@@ -44,6 +44,10 @@ In a fresh Claude Code session:
 3. Run `/tx3:check` in a project directory → the slash command resolves the project's `main.tx3` and runs `tx3_check`.
 4. Run `claude --debug` and call `mcp__tx3__tx3_examples_list` directly → confirm 10 bundled examples are listed.
 
+## OpenCode
+
+The same Skills and `tx3-mcp` server ship for OpenCode as the npm package `opencode-tx3`. See [docs/opencode.md](docs/opencode.md).
+
 ## Compatibility
 
 `tx3-skills` 0.1.x is compatible with **tx3 0.17.x** (via `tx3-mcp` 0.1.x, which pins `tx3-lang = "=0.17"`). When tx3 ships a new minor release, expect a matching `tx3-skills` release with updated skill content; re-run `tx3up` to refresh the toolchain binaries alongside.

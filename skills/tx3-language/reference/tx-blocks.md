@@ -31,7 +31,7 @@ input source {
 
 `input * 3 { ... }` (with a `*N` multiplier) consumes N matching UTxOs. Without `datum_is`, the input's datum is opaque `Bytes`.
 
-If `from` is a [policy](./top-level) that carries a `ref`, that reference-script UTxO is added to the transaction's reference inputs automatically — no separate `reference` block needed.
+If `from` is a [policy](./top-level.md) that carries a `ref`, that reference-script UTxO is added to the transaction's reference inputs automatically — no separate `reference` block needed.
 
 ## `reference <name> { ... }`
 
