@@ -1,0 +1,30 @@
+{
+  "name": "tx3-skills",
+  "version": "0.2.0",
+  "description": "Tx3 language and trix toolchain support for Codex: the tx3-language and tx3-project skills plus the local tx3-mcp server.",
+  "author": {
+    "name": "TxPipe",
+    "url": "https://txpipe.io"
+  },
+  "homepage": "https://github.com/tx3-lang/tx3-skills",
+  "repository": "https://github.com/tx3-lang/tx3-skills",
+  "license": "Apache-2.0",
+  "keywords": ["tx3", "cardano", "trix", "smart-contracts", "utxo"],
+  "skills": "./skills/",
+  "commands": [],
+  "mcpServers": "./.codex-plugin/mcp.json",
+  "interface": {
+    "displayName": "Tx3",
+    "shortDescription": "Tx3 language and toolchain",
+    "longDescription": "Write, check and inspect Tx3 transaction templates for Cardano. The tx3-language skill teaches the language surface; the tx3-project skill covers trix projects, profiles and tests. The local tx3-mcp server parses, checks, lowers and inspects your project. Requires tx3-mcp and trix on PATH, installed with tx3up.",
+    "developerName": "TxPipe",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://github.com/tx3-lang/tx3-skills",
+    "defaultPrompt": [
+      "What must my application supply to call this protocol's transactions?",
+      "Check this Tx3 project for errors.",
+      "Explain what this transaction consumes and produces."
+    ]
+  }
+}

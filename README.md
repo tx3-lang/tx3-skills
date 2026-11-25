@@ -2,6 +2,8 @@
 
 A [Claude Code](https://claude.com/claude-code) plugin that makes the [Tx3](https://github.com/tx3-lang/tx3) language and the [`trix`](https://github.com/tx3-lang/trix) toolchain first-class in any Claude Code session.
 
+Using Codex? See [docs/codex.md](docs/codex.md) for the Codex plugin, which ships the same two skills and MCP server.
+
 ## What's inside
 
 - **`tx3-language`** skill — auto-loads when you open or edit `.tx3` files. Teaches the language surface (top-level definitions, tx blocks, types, Cardano-specific blocks, expressions, gotchas).

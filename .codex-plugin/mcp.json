@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tx3": {
+      "type": "stdio",
+      "command": "tx3-mcp"
+    }
+  }
+}
